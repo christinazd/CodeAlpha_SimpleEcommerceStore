@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<a href="{% url 'products:product_list' %}" class="back-link">← Back to products</a>
+
+<div class="product-detail">
+    <div>
+        {% if product.image %}
+            <img class="product-detail-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+        {% else %}
+            <img class="product-detail-image" src="{% static 'images/placeholder.svg' %}" alt="{{ product.name }}">
+        {% endif %}
+    </div>
+    <div class="product-detail-info">
+        <h1>{{ product.name }}</h1>
+        <p class="product-detail-price">${{ product.price }}</p>
+        <p class="product-detail-desc">{{ product.description }}</p>
+        <span class="stock-badge {% if product.in_stock %}stock-in{% else %}stock-out{% endif %}">
+            {% if product.in_stock %}In stock ({{ product.stock }}){% else %}Out of stock{% endif %}
+        </span>
+        <br>
+        {% if product.in_stock %}
+        <form action="{% url 'cart:cart_add' product.id %}" method="post" style="margin-top: 1rem;">
+            {% csrf_token %}
+            <label for="qty">Quantity:</label>
+            <input type="number" id="qty" name="quantity" value="1" min="1" max="{{ product.stock }}" style="width: 4rem; padding: 0.4rem; margin: 0 0.5rem;">
+            <input type="hidden" name="next" value="products:product_list">
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

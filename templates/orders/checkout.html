@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Checkout</h1>
+
+<div class="checkout-summary">
+    <h2>Order summary</h2>
+    {% for item in cart %}
+    <div class="checkout-item">
+        <span>{{ item.product.name }} × {{ item.quantity }}</span>
+        <span>${{ item.total }}</span>
+    </div>
+    {% endfor %}
+    <p class="checkout-total">Total: ${{ cart_total_price|floatformat:2 }}</p>
+</div>
+
+<form method="post" action="{% url 'orders:place_order' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Place Order</button>
+</form>
+
+<a href="{% url 'cart:cart_detail' %}" class="btn btn-outline" style="margin-top: 1rem;">Back to Cart</a>
+{% endblock %}

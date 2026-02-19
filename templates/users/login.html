@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="auth-box">
+    <h1>Login</h1>
+    <form method="post" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.GET.next|default:'' }}">
+        <div class="form-group">
+            <label for="id_username">Email or username</label>
+            <input type="text" name="username" id="id_username" required autofocus autocomplete="username">
+        </div>
+        <div class="form-group">
+            <label for="id_password">Password</label>
+            <input type="password" name="password" id="id_password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <p class="auth-link">Don't have an account? <a href="{% url 'users:register' %}">Register</a></p>
+</div>
+{% endblock %}

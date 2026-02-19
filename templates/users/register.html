@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="auth-box">
+    <h1>Create an account</h1>
+    {% if form.non_field_errors %}
+        <div class="form-errors form-errors-block">
+            {% for err in form.non_field_errors %}<div>{{ err }}</div>{% endfor %}
+        </div>
+    {% endif %}
+    <form method="post" action="{% url 'users:register' %}" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_email">Email</label>
+            <input type="email" name="email" id="id_email" value="{{ form.email.value|default:'' }}" autofocus autocomplete="email">
+            {% if form.email.errors %}
+                <div class="form-errors">{% for err in form.email.errors %}<div>{{ err }}</div>{% endfor %}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="id_password1">Password</label>
+            <input type="password" name="password1" id="id_password1" autocomplete="new-password">
+            {% if form.password1.help_text %}<div class="form-help">{{ form.password1.help_text }}</div>{% endif %}
+            {% if form.password1.errors %}
+                <div class="form-errors">{% for err in form.password1.errors %}<div>{{ err }}</div>{% endfor %}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="id_password2">Confirm password</label>
+            <input type="password" name="password2" id="id_password2" autocomplete="new-password">
+            {% if form.password2.errors %}
+                <div class="form-errors">{% for err in form.password2.errors %}<div>{{ err }}</div>{% endfor %}</div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <p class="auth-link">Already have an account? <a href="{% url 'users:login' %}">Login</a></p>
+</div>
+{% endblock %}

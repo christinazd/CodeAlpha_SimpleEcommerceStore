@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<h1 class="page-title">All Products</h1>
+
+<div class="products-grid">
+    {% for product in products %}
+    <article class="product-card">
+        <a href="{% url 'products:product_detail' product.pk %}">
+            {% if product.image %}
+                <img class="product-card-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+                <img class="product-card-image" src="{% static 'images/placeholder.svg' %}" alt="{{ product.name }}">
+            {% endif %}
+        </a>
+        <div class="product-card-body">
+            <h2 class="product-card-title">{{ product.name }}</h2>
+            <p class="product-card-desc">{{ product.description|truncatewords:15 }}</p>
+            <p class="product-card-price">${{ product.price }}</p>
+            <a href="{% url 'products:product_detail' product.pk %}" class="btn btn-primary">View Details</a>
+        </div>
+    </article>
+    {% empty %}
+    <p>No products yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

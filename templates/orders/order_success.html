@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Confirmed{% endblock %}
+
+{% block content %}
+<div class="order-success-box">
+    <h1>Thank you for your order!</h1>
+    <p class="order-id">Order #{{ order.id }}</p>
+    <p>Total: ${{ order.total_price }}</p>
+    <p>We'll process your order shortly.</p>
+    <a href="{% url 'products:product_list' %}" class="btn btn-primary">Continue Shopping</a>
+</div>
+{% endblock %}
