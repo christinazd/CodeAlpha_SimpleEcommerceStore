@@ -97,6 +97,8 @@ CodeAlpha_SimpleEcommerceStore/
   <img width="1906" height="897" alt="image" src="https://github.com/user-attachments/assets/03d49304-10e9-42dd-a900-0ef45f0e6dab" />
   <img width="1880" height="884" alt="image" src="https://github.com/user-attachments/assets/fb43bef3-9e55-40c0-bd7f-ec9bed035d7b" />
   <img width="1897" height="896" alt="image" src="https://github.com/user-attachments/assets/dd7f62bf-4988-4c87-9ff4-a8c97e7392de" />
+  <img width="1892" height="881" alt="image" src="https://github.com/user-attachments/assets/f6dd903f-5445-4c04-b43b-9c475c8afd37" />
+
 
 
 
