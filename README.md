@@ -90,3 +90,15 @@ CodeAlpha_SimpleEcommerceStore/
 - **Database:** SQLite (default)
 - **Frontend:** HTML, CSS, Vanilla JS
 - **Static:** Django static files; optional product images in `media/products/`
+
+  ##Preview
+  <img width="1878" height="892" alt="image" src="https://github.com/user-attachments/assets/cd66ca5d-4527-4961-b306-7ec1d991557c" />
+  <img width="1906" height="903" alt="image" src="https://github.com/user-attachments/assets/6bb17100-d53d-4d24-85b1-13b85c7cb762" />
+  <img width="1906" height="897" alt="image" src="https://github.com/user-attachments/assets/03d49304-10e9-42dd-a900-0ef45f0e6dab" />
+  <img width="1880" height="884" alt="image" src="https://github.com/user-attachments/assets/fb43bef3-9e55-40c0-bd7f-ec9bed035d7b" />
+  <img width="1897" height="896" alt="image" src="https://github.com/user-attachments/assets/dd7f62bf-4988-4c87-9ff4-a8c97e7392de" />
+
+
+
+
+
